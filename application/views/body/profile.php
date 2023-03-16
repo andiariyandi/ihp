@@ -21,7 +21,7 @@
 <a href="#" class="list-group-item active">
   GENERAL INFORMASI
 </a>
-<a href="#" class="list-group-item"><span class="glyphicon glyphicon-asterisk"></span> &nbsp;<?php echo $email;?></a>
+<a href="#" class="list-group-item"><span class="glyphicon glyphicon-asterisk"></span> &nbsp;<?php echo $username;?></a>
 <a href="#" class="list-group-item"><span class="glyphicon glyphicon-user"></span> &nbsp;<?php echo $name;?></a>
 <a href="#" class="list-group-item"><span class="glyphicon glyphicon-map-marker"></span> &nbsp;<?php echo $alamat;?></a>
 <a href="#" class="list-group-item"><span class="glyphicon glyphicon-tint"></span> &nbsp;<?php echo $jk;?></a>

@@ -53,7 +53,6 @@ function __construct(){
         $row_assignmentticket = $this->db->query($sql_assignmentticket)->row();
         //
         $data['notif_assignment'] = $row_assignmentticket->jml_assignment_ticket;
-    
 
         //end notification
         $data['link'] = "nopen/hapus";
@@ -67,11 +66,11 @@ function __construct(){
 
   function hapus()
  {
- 	$id_nopen = $_POST['id_nopen'];
+ 	$id = $_POST['id'];
 
  	$this->db->trans_start();
 
- 	$this->db->where('id_nopen', $id_nopen);
+ 	$this->db->where('id_nopen', $id);
  	$this->db->delete('nopen');
 
  	$this->db->trans_complete();
@@ -174,6 +173,9 @@ $data['tipe'] = $tipe;
         // $id_dept = trim($this->session->userdata('id_dept'));
         $id_user = trim($this->session->userdata('id_user'));
 
+        // $id_dept = trim($this->session->userdata('id_dept'));
+        $id_user = trim($this->session->userdata('id_user'));
+
         //notification
         //
         $sql_listticket = "SELECT COUNT(id_ticket) AS jml_list_ticket FROM ticket WHERE status = 3";
@@ -198,7 +200,7 @@ $data['tipe'] = $tipe;
         //end notification
 
         $sql = "SELECT * FROM nopen WHERE id_nopen = '$id'";
-		     $row = $this->db->query($sql)->row();
+		$row = $this->db->query($sql)->row();
 
 		$data['url'] = "nopen/update";
 

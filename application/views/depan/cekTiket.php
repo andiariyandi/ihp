@@ -74,53 +74,53 @@
             <path class="divider-fill" d="M0 100 C40 0 60 0 100 100 Z"/>
          </svg></div>
       <div id="about">
+         <div class="row">
+            <div class="col-1">
+               <div id="wb_servicesCards">
                   <div id="servicesCards">
                      <div class="row">
                         <div class="col-1">
-                           <div id="wb_servicesCard1" style="display:flex;width:calc(100% - 20px);z-index:7;">
-                              <div id="servicesCard1-card-body">
-                                 <div id="servicesCard1-card-item0"></div>
-                                 <div id="servicesCard1-card-item1"><img alt="" class="image" src="<?php echo base_url();?>assets/images/pos.png"></div>
-                                 <div id="servicesCard1-card-item2"></div>
+                           <div id="wb_servicesCard1" style="display:flex;width:calc(100% - 20px);z-index:4;">
+
+                                <div id="servicesCard1-card-body">
+                                   <div id="servicesCard1-card-item0"><i class="fa fa-envelope-o"></i></div>
+                                   <div id="servicesCard1-card-item1">Kode Unik Tiket</div>
+                                   <div id="servicesCard1-card-item2">Untuk setiap tiket yang masuk maka dengan segera Helpdesk Team melakukan tanggapan.</div>
+                                </div>
+
+
+                           </div>
+                           <div id="wb_servicesCard2" style="display:flex;width:calc(100% - 20px);z-index:5;">
+                              <div id="servicesCard2-card-body">
+                                 <div id="servicesCard2-card-item0"><i class="fa fa-tachometer"></i></div>
+                                 <div id="servicesCard2-card-item1">Great Performance</div>
+                                 <div id="servicesCard2-card-item2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet quam id dui posuere blandit. Vivamus magna justo, lacinia eget consectetur sed, convallis.</div>
                               </div>
                            </div>
-
-                           <div id="wb_servicesCard1" style="display:flex;width:calc(100% - 20px);z-index:7;">
-                              <div id="servicesCard1-card-body">
-                                 <div id="servicesCard1-card-item0"></div>
-                                 <div id="servicesCard1-card-item1"><img alt="" class="image" src="<?php echo base_url();?>assets/images/logo1.png"></div>
-                                 <div id="servicesCard1-card-item2"></div>
-                              </div>
-                           </div>
-
                         </div>
                         <div class="col-2">
-                              <div id="wb_servicesCard2" style="display:flex;width:calc(100% - 20px);z-index:8;">
-                                <div id="servicesCard2-card-body">
-                                <div id="servicesCard2-card-item0"><i class="fa fa-tachometer"></i></div>
-                                <div id="servicesCard2-card-item1">Great Performance</div>
-                                <div id="servicesCard2-card-item2">Untuk setiap tiket yang masuk maka dengan segera kami akan melakukan tanggapan.</div>
-                              </div>
-                            </div>
-                           <div id="wb_servicesCard3" style="display:flex;width:calc(100% - 20px);z-index:9;">
+                           <div id="wb_servicesCard3" style="display:flex;width:calc(100% - 20px);z-index:6;">
                               <div id="servicesCard3-card-body">
                                  <div id="servicesCard3-card-item0"><i class="fa fa-umbrella"></i></div>
                                  <div id="servicesCard3-card-item1">Support</div>
-                                 <div id="servicesCard3-card-item2">Jelaskan secara detail dan lengkap supaya kami dapat membantu Anda dengan sebaik mungkin. </div>
+                                 <div id="servicesCard3-card-item2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet quam id dui posuere blandit. Vivamus magna justo, lacinia eget consectetur sed, convallis.</div>
                               </div>
                            </div>
-                           <div id="wb_servicesCard4" style="display:flex;width:calc(100% - 20px);z-index:10;">
+                           <div id="wb_servicesCard4" style="display:flex;width:calc(100% - 20px);z-index:7;">
                               <div id="servicesCard4-card-body">
                                  <div id="servicesCard4-card-item0"><i class="fa fa-line-chart"></i></div>
-                                 <div id="servicesCard4-card-item1">Tracking System</div>
-                                 <div id="servicesCard4-card-item2">Kami akan menampilkan seluruh arsip dan histori dari permintaan dukungan, termasuk respon terhadap permintaan bantuan dari tiket yang sudah pernah Anda kirimkan kepada kami.</div>
+                                 <div id="servicesCard4-card-item1">Increase Revenue</div>
+                                 <div id="servicesCard4-card-item2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet quam id dui posuere blandit. Vivamus magna justo, lacinia eget consectetur sed, convallis.</div>
                               </div>
                            </div>
                         </div>
                      </div>
+                  </div>
+               </div>
+            </div>
          </div>
       </div>
-    </div> <!--about -->
+   </div>
    <div id="wb_team">
       <div id="team">
          <div id="wb_teamHeading1" style="display:inline-block;z-index:13;">

@@ -26,7 +26,7 @@ function view()
         $data['sidebar'] = "sidebar/sidebar";
         $data['body'] = "body/profile";
 
-
+        // $id_dept = trim($this->session->userdata('id_dept'));
         $id_user = trim($this->session->userdata('id_user'));
 
 				//notification
@@ -56,13 +56,13 @@ function view()
 
 
         $sql =
-        "SELECT  A.name, A.alamat, A.jk, A.level, A.notlp, A.email
+        "SELECT A.username, A.name, A.alamat, A.jk, A.level, A.notlp, A.email
         FROM user A WHERE A.id_user ='$id'";
 
         $row = $this->db->query($sql)->row();
 
         //general
-      
+        $data['username'] = $row->username;
         $data['name'] = $row->name;
 				$data['notlp'] = $row->notlp;
         $data['alamat'] = $row->alamat;

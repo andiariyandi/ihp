@@ -171,7 +171,7 @@ class Model_app extends CI_Model{
 
     public function datauser()
     {
-      $query = $this->db->query('SELECT  A.level, A.id_user, A.name, A.password, A.alamat, A.jk, A.notlp, A.email
+      $query = $this->db->query('SELECT A.username, A.level, A.id_user, A.name, A.password, A.alamat, A.jk, A.notlp, A.email
          FROM user A ');
 
       return $query->result();

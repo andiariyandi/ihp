@@ -27,7 +27,9 @@ function __construct(){
       $data['sidebar'] = "sidebar/sidebar";
       $data['body'] = "body/user";
 
-
+        // $id_dept = trim($this->session->userdata('id_dept'));
+        $id_user = trim($this->session->userdata('id_user'));
+        // $id_dept = trim($this->session->userdata('id_dept'));
         $id_user = trim($this->session->userdata('id_user'));
 
         //notification
@@ -83,7 +85,10 @@ function __construct(){
       $data['sidebar'] = "sidebar/sidebar";
       $data['body'] = "body/form_user";
 
+    // $data['dd_karyawan'] = $this->model_app->dropdown_karyawan();
+		// $data['id_karyawan'] = "";
 
+    // $id_dept = trim($this->session->userdata('id_dept'));
     $id_user = trim($this->session->userdata('id_user'));
 
     //notification
@@ -113,6 +118,7 @@ function __construct(){
 		 $data['dd_level'] = $this->model_app->dropdown_level();
 	 $data['id_level'] = "";
 
+  	$data['username'] = $this->model_app->getusername();
     $data['dd_jk'] = $this->model_app->dropdown_jk();
     $data['id_jk'] = "";
 
@@ -135,9 +141,10 @@ function __construct(){
  function save()
  {
 	$id_user = "";
-  $username = $this->model_app->getusername();
-  $password = $username;
 
+ 	$username = $this->model_app->getusername();
+  $password = $this->model_app->getusername();
+ 	// $password = strtoupper(trim($this->input->post('password')));
  	$id_level = strtoupper(trim($this->input->post('id_level')));
   $name = strtoupper(trim($this->input->post('name')));
  	$jk = strtoupper(trim($this->input->post('id_jk')));
@@ -148,6 +155,7 @@ function __construct(){
 
 
  	$data['id_user'] = $id_user;
+ 	$data['username'] = $username;
  	$data['password'] = md5($password);
  	$data['level'] = $id_level;
   $data['name'] = $name;
@@ -174,7 +182,7 @@ function __construct(){
   			{
   				$this->session->set_flashdata("msg", "<div class='alert bg-success' role='alert'>
   			    <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-  			    <svg class='glyph stroked empty-message'><use xlink:href='#stroked-empty-message'></use></svg> Data tersimpan. \n Password : <b> $username
+  			    <svg class='glyph stroked empty-message'><use xlink:href='#stroked-empty-message'></use></svg> Data tersimpan. \n Username & Password : <b> $username
   			    </div>");
   				redirect('user/user_list');
   			}
@@ -200,6 +208,14 @@ function __construct(){
         $data['body'] = "body/form_user";
 
 
+        // $id_dept = trim($this->session->userdata('id_dept'));
+        $id_user = trim($this->session->userdata('id_user'));
+
+
+
+        // $id_dept = trim($this->session->userdata('id_dept'));
+        $id_user = trim($this->session->userdata('id_user'));
+
         //notification
         //
         $sql_listticket = "SELECT COUNT(id_ticket) AS jml_list_ticket FROM ticket WHERE status = 3";
@@ -223,7 +239,7 @@ function __construct(){
 
         //end notification
 
-        $sql = "SELECT name,notlp,password,level,email,alamat,jk FROM user WHERE id_user ='$id'";
+        $sql = "SELECT id_user,name,notlp,username,password,level,email,alamat,jk FROM user WHERE id_user ='$id'";
 		    $row = $this->db->query($sql)->row();
 
 		$data['url'] = "user/update";
@@ -233,11 +249,13 @@ function __construct(){
     $data['dd_level'] = $this->model_app->dropdown_level();
     $data['id_level'] = $row->level;;
 
+    $data['username'] = $row->username;
     $data['dd_jk'] = $this->model_app->dropdown_jk();
     $data['id_jk'] = $row->jk;;
 
+    $pw =
+    $data['id_user'] = "";
    	$data['password'] ="";
-    $data['id'] =$id;
     $data['name'] = $row->name;
 
 
@@ -254,9 +272,11 @@ function __construct(){
  function update()
  {
 
-  $id = trim($this->input->post('id'));
+   $id_user = trim($this->session->userdata('id_user'));
+
+  $username = trim($this->input->post('username'));
   $password = trim($this->input->post('password'));
-;
+  // $password = strtoupper(trim($this->input->post('password')));
   $id_level = strtoupper(trim($this->input->post('id_level')));
   $name = strtoupper(trim($this->input->post('name')));
   $jk = strtoupper(trim($this->input->post('id_jk')));
@@ -264,12 +284,9 @@ function __construct(){
   $notlp = trim($this->input->post('notlp'));
   $email = trim($this->input->post('email'));
 
-  if(empty($password)){
 
-  }else{
-    $data['password'] = md5($password);
-  }
-
+  $data['username'] = $username;
+  $data['password'] = md5($password);
   $data['level'] = $id_level;
   $data['name'] = $name;
   $data['jk'] = $jk;
@@ -279,10 +296,17 @@ function __construct(){
 
  	$this->db->trans_start();
 
- 	$this->db->where('id_user', $id);
+ 	$this->db->where('id_user', $id_user);
  	$this->db->update('user', $data);
-  $this->db->trans_complete();
 
+
+
+    // $result = $this->model_app->checkUsername($username);
+    // if(empty($result)){
+      $this->db->where('id_user', $id_user);
+     	$this->db->update('user', $data);
+
+      $this->db->trans_complete();
 
       if ($this->db->trans_status() === FALSE)
     			{
@@ -299,6 +323,16 @@ function __construct(){
     			    </div>");
     				redirect('user/user_list');
     			}
+    // }else {
+    //   $this->session->set_flashdata("msg", "<div class='alert bg-danger' role='alert'>
+    //     <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+    //     <svg class='glyph stroked empty-message'><use xlink:href='#stroked-empty-message'></use></svg> Email sudah ada!.
+    //     </div>");
+    //     redirect('user/edit/');
+    // }
+
+
+
 
  }
 

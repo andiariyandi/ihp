@@ -18,23 +18,26 @@
 	<?php echo $this->session->flashdata("msg");?>
 					<div class="col-md-6">
 					<form method="post" action="<?php echo base_url();?><?php echo $url;?>">
+
+					<input type="hidden" class="form-control" name="id_user" value="<?php echo $id_user;?>">
+					<input type="hidden" class="form-control" name="username" value="<?php echo $username;?>">
 					<input type="hidden" class="form-control" name="password" value="<?php echo $password;?>">
 
 					<?php if($flag=="edit")
 					{ ?>
-						<input type="hidden" class="form-control" name="id" value="<?php echo $id;?>">
+
+						<div class="form-group">
+							<label>Username</label>
+							<input class="form-control" name="username" placeholder="Username" value="<?php echo $username;?>" required>
+						</div>
 
 						<div class="form-group">
 							<label>Password</label>
-							<input class="form-control" type="password" name="password" placeholder="Password" value="<?php echo $password;?>" >
+							<input class="form-control" name="password" placeholder="Password" value="<?php echo $password;?>" >
 						</div>
 
 					<?php }else{}
 					?>
-					<div class="form-group">
-						<label>Email</label>
-						<input type="email" class="form-control" name="email" value="<?php echo $email;?>">
-					</div>
 					<div class="form-group">
 						<label>Nama</label>
 						<input class="form-control" name="name"  value="<?php echo $name;?>" required>
@@ -58,7 +61,10 @@
 										</div>
 
 
-
+															<div class="form-group">
+																<label>Email</label>
+																<input type="email" class="form-control" name="email" value="<?php echo $email;?>">
+															</div>
 
 
 					<div class="form-group">

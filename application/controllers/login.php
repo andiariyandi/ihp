@@ -17,11 +17,11 @@ function index(){
 }
 
   function login_akses(){
-  	$email = trim($this->input->post('email'));
+  	$username = trim($this->input->post('username'));
   	$password = md5(trim($this->input->post('password')));
 
 		$akses = $this->db->query("SELECT id_user, name, level, notlp, alamat, jk FROM user
-				WHERE email = '$email' AND password = '$password'");
+				WHERE username = '$username' AND password = '$password'");
 
     if($akses->num_rows() == 1){
 			foreach($akses->result_array() as $data){
@@ -33,7 +33,11 @@ function index(){
     		redirect('home');
 			}
 		} else {
-			$this->session->set_flashdata('error', 'Email atau password Salah!');
+			$this->session->set_flashdata("msg",
+			"<div class='alert bg-danger' role='alert'>
+			 <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+			 <svg class='glyph stroked empty-message'><use xlink:href='#stroked-empty-message'></use></svg> username / Password salah.
+			 </div>");
 			 redirect('login');
 		 }
   }
